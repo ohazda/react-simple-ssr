@@ -1,0 +1,30 @@
+{
+  "name": "ssr",
+  "description": "Server Side Rendering setup with React, Express, Webpack, Babel",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "latest",
+    "@babel/node": "latest",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "babel-loader": "8",
+    "cross-env": "latest",
+    "express": "latest",
+    "nodemon": "latest",
+    "npm-run-all": "latest",
+    "react": "16",
+    "react-aria": "^3.27.0",
+    "react-dom": "16",
+    "webpack": "4",
+    "webpack-cli": "4"
+  },
+  "scripts": {
+    "start": "npm-run-all -p build serve",
+    "build": "webpack -w",
+    "serve": "nodemon --ignore ./build --exec babel-node -- server.js --inspect",
+    "production": "cross-env NODE_ENV=production npm start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  }
+}
